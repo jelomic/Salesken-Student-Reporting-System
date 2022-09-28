@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management System</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Student Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">Student Management</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center"> Enter Semester Marks </h1>
+      <div class = "card-body">
+        <form th:action="@{/students/marks}" th:object = "${studentmarks}" method="POST">
+          <div class ="form-group">
+            <label> Student Roll No </label>
+            <input
+                    type = "text"
+                    name = "id"
+                    th:field = "*{id}"
+                    class = "form-control"
+                    placeholder="Enter Student Roll Number"
+            />
+          </div>
+
+          <div class ="form-group">
+            <label> Semester No </label>
+            <input
+                    type = "text"
+                    name = "semester"
+                    th:field = "*{semester}"
+                    class = "form-control"
+                    placeholder="Enter Semester Number"
+            />
+          </div>
+
+          <div class ="form-group">
+            <label> Maths Marks </label>
+            <input
+                    type = "text"
+                    name = "maths"
+                    th:field = "*{maths}"
+                    class = "form-control"
+                    placeholder="Enter Maths Marks"
+            />
+          </div>
+          <div class ="form-group">
+            <label> Science Marks </label>
+            <input
+                    type = "text"
+                    name = "science"
+                    th:field = "*{science}"
+                    class = "form-control"
+                    placeholder="Enter Science Marks"
+            />
+          </div>
+          <div class ="form-group">
+            <label> English Marks </label>
+            <input
+                    type = "text"
+                    name = "english"
+                    th:field = "*{english}"
+                    class = "form-control"
+                    placeholder="Enter English Marks"
+            />
+          </div>
+
+          <div class = "box-footer">
+            <button type="submit" class = "btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
